@@ -94,6 +94,11 @@ int av_strstart(const char *str, const char *pfx, const char **ptr ) {
 
 - (void)viewDidLoad
 {
+#ifdef DEBUG
+    NSLog(@"-------------------------------YES");
+#else
+    NSLog(@"-------------------------------NO");
+#endif
   const char *a;
   int k = av_strstart("12345","123",&a);
 //  [ViewController setIsChildDirected:YES];
