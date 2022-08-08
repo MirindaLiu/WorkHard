@@ -135,16 +135,17 @@ void methodExchange(Class aClass, SEL orig_sel, SEL alt_sel)
     // ((void (*)(id, SEL))(void *)objc_msgSend) 中的 void (*)(id, SEL))(void *) 是对objc_msgSend函数做严格类型匹配, 例如下面不匹配类型的objc_msgSend函数就会报错
     // ((void (*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("RPerson"), sel_registerName("sleep"),6);
     
-    //如果去工程 building Setting  关闭 msgSend的类型检查(Enable Strict Checking of objc_msgSend Calls 置为NO) 就不应写前面的(void (*)(id, SEL))(void *),多传入参数也不会报警告,运行时会找不到方法崩溃,就可以如下调用:.
-    objc_msgSend(objc_getClass("RPerson"), sel_registerName("sleep"));
-    
+    //如果去工程 building Setting  关闭 msgSend的类型检查(ç 置为NO) 就不应写前面的(void (*)(id, SEL))(void *),多传入参数也不会报警告,运行时会找不到方法崩溃,就可以如下调用:. // 最新更新XCode12 以后设置Too many arguments to function call为No 依然爆红，说多参数。XCode 12后必须这种调用 ：((void (*)(id, SEL))(void *)objc_msgSend)((id)((RPerson *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("RPerson"), sel_registerName("new")), sel_registerName("walk"));
+
+//    objc_msgSend(objc_getClass("RPerson"), sel_registerName("sleep")); //XCode 12后 这种调用无效报错
+//
 //    objc_msgSend(objc_getClass("RPerson"), sel_registerName("sleep"),@"100",10); 不crash,说明后面多余的参数是不会影响的.
 //    objc_msgSend(objc_getClass("RPerson"), sel_registerName("sleep:"),@"100",10); 会crash 因为找不到对应的函数实现
 
     //调用实例的方法
         ((void (*)(id, SEL))(void *)objc_msgSend)((id)((RPerson *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("RPerson"), sel_registerName("new")), sel_registerName("walk"));
     //去掉类型检查
-    objc_msgSend(objc_msgSend(objc_getClass("RPerson"), sel_registerName("new")), sel_registerName("walk"));
+//    objc_msgSend(objc_msgSend(objc_getClass("RPerson"), sel_registerName("new")), sel_registerName("walk"));//XCode 12后 这种调用无效报错
     
     //调用带参数的实例的方法
     ((void (*)(id, SEL ,NSString*))(void *)objc_msgSend)((id)((RPerson *(*)(id, SEL))(void *)objc_msgSend)((id)objc_getClass("RPerson"), sel_registerName("new")), sel_registerName("drink:"), @"water");
@@ -158,7 +159,7 @@ void methodExchange(Class aClass, SEL orig_sel, SEL alt_sel)
     
     //如果是大量调用可以使用下面的方式
     same_msgSend myMsgSend = (same_msgSend)objc_msgSend;
- myMsgSend(objc_msgSend((id)objc_getClass("RPerson"),sel_registerName("new")),sel_registerName("drink:"), @"water");
+// myMsgSend(objc_msgSend((id)objc_getClass("RPerson"),sel_registerName("new")),sel_registerName("drink:"), @"water");//XCode 12后 这种调用无效报错
 }
 //objc_msgSend 的汇编代码研究暂时跳过
 

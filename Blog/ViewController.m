@@ -38,6 +38,7 @@
 #import "BinarySearchTree.h"
 #import "Heap.h"
 #import "stringSearch.h"
+#import "ASMLook.h"
 #define about_child_description  @"aboutChildDescription"
 
 //#define imageName(name)     @"image/"name@".jpg"
@@ -50,24 +51,24 @@
 
 @implementation ViewController
 
-int av_strstart(const char *str, const char *pfx, const char **ptr ) {
-  int i = 0;
-  bool ispfx = true;
-  while ('\0' != pfx[i] && '\0' != str[i]){
-    if (str[i] != pfx[i]){
-      ispfx = false;
-      break;
-    }
-    i++;
-  }
-  
-  if (ispfx) {
-    const char* addr = &(str[i]);
-    ptr = &addr;
-  }
-  return ispfx ? 1 : 0;
-  
-}
+//int av_strstart(const char *str, const char *pfx, const char **ptr ) {
+//  int i = 0;
+//  bool ispfx = true;
+//  while ('\0' != pfx[i] && '\0' != str[i]){
+//    if (str[i] != pfx[i]){
+//      ispfx = false;
+//      break;
+//    }
+//    i++;
+//  }
+//
+//  if (ispfx) {
+//    const char* addr = &(str[i]);
+//    ptr = &addr;
+//  }
+//  return ispfx ? 1 : 0;
+//
+//}
 - (void)viewDidAppear:(BOOL)animated {
 //    NSLog(@"viewDidAppear-------------------");
 }
@@ -94,19 +95,21 @@ int av_strstart(const char *str, const char *pfx, const char **ptr ) {
 
 - (void)viewDidLoad
 {
-#ifdef DEBUG
-    NSLog(@"-------------------------------YES");
-#else
-    NSLog(@"-------------------------------NO");
-#endif
-  const char *a;
-  int k = av_strstart("12345","123",&a);
+//#ifdef DEBUG
+//    NSLog(@"-------------------------------YES");
+//#else
+//    NSLog(@"-------------------------------NO");
+//#endif
+//  const char *a;
 //  [ViewController setIsChildDirected:YES];
 //  [NSThread sleepForTimeInterval:1];
 //  [ViewController setIsChildDirected:YES];
 //  [NSThread sleepForTimeInterval:1];
 //  [ViewController setIsChildDirected:NO];
     [super viewDidLoad];
+    
+//    ASMLook *asml = [[ASMLook alloc]init];
+//    [asml lookAsmThroughC];
 //  NSDictionary *dic = ({
 //    NSMutableDictionary * params = [NSMutableDictionary dictionary];
 //    for (int i = 0; i<10; i++) {
@@ -136,8 +139,8 @@ int av_strstart(const char *str, const char *pfx, const char **ptr ) {
   
   
   
-  stringSearch *str = [stringSearch new];
-  [str strInto];
+//  stringSearch *str = [stringSearch new];
+//  [str strInto];
   
     //geek end ------
     //GCD------------------------------------------------------------------------
@@ -163,7 +166,7 @@ int av_strstart(const char *str, const char *pfx, const char **ptr ) {
 //    [bit bitInto];
     //bit operation end----------------------------
 //    self.view.backgroundColor = [UIColor yellowColor];
-//    [self fishTest];
+    [self fishTest];
 //    NSString *str = [[NSString alloc]initWithFormat:nil arguments:nil];
 //    if (@available(iOS 11.0, *)) {
 //        UIEdgeInsets a = self.view.safeAreaInsets;
@@ -354,7 +357,7 @@ static void (*old_nslog)(NSString *format, ...);
 
 void bindNSLog(NSString *format, ...){
     
-//    old_nslog(@"执行了bindNSLog");
+    old_nslog(@"执行了bindNSLog");
 }
 
 

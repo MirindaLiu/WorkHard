@@ -24,6 +24,7 @@
 		9B353EE12277F462002BAF0B /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = 9B353EDF2277F461002BAF0B /* fishhook.c */; };
 		9B41AA7621B12028007050CE /* PriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B41AA7521B12028007050CE /* PriorityQueue.m */; };
 		9B41AA8021B51AF4007050CE /* StaticLinkedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B41AA7F21B51AF4007050CE /* StaticLinkedList.m */; };
+		9B42694D26CA65C100CD9201 /* ASMLook.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42694C26CA65C100CD9201 /* ASMLook.m */; };
 		9B4C43691E5044DE003087D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C43681E5044DE003087D3 /* main.m */; };
 		9B4C436C1E5044DE003087D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C436B1E5044DE003087D3 /* AppDelegate.m */; };
 		9B4C436F1E5044DE003087D3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C436E1E5044DE003087D3 /* ViewController.m */; };
@@ -96,6 +97,8 @@
 		9B41AA7521B12028007050CE /* PriorityQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PriorityQueue.m; path = Algorithm/PriorityQueue.m; sourceTree = "<group>"; };
 		9B41AA7E21B51AF3007050CE /* StaticLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StaticLinkedList.h; path = DataStructureKnowledge/LinearList/LinkedList/StaticLinkedList.h; sourceTree = "<group>"; };
 		9B41AA7F21B51AF4007050CE /* StaticLinkedList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StaticLinkedList.m; path = DataStructureKnowledge/LinearList/LinkedList/StaticLinkedList.m; sourceTree = "<group>"; };
+		9B42694B26CA65C100CD9201 /* ASMLook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASMLook.h; sourceTree = "<group>"; };
+		9B42694C26CA65C100CD9201 /* ASMLook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASMLook.m; sourceTree = "<group>"; };
 		9B4C43641E5044DE003087D3 /* Blog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B4C43681E5044DE003087D3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B4C436A1E5044DE003087D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -334,6 +337,15 @@
 			name = LinkedList;
 			sourceTree = "<group>";
 		};
+		9B42694826CA64BE00CD9201 /* ASM */ = {
+			isa = PBXGroup;
+			children = (
+				9B42694B26CA65C100CD9201 /* ASMLook.h */,
+				9B42694C26CA65C100CD9201 /* ASMLook.m */,
+			);
+			path = ASM;
+			sourceTree = "<group>";
+		};
 		9B4C435B1E5044DE003087D3 = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +366,7 @@
 		9B4C43661E5044DE003087D3 /* Blog */ = {
 			isa = PBXGroup;
 			children = (
+				9B42694826CA64BE00CD9201 /* ASM */,
 				9B2E8FDE22C0B184006B871A /* BitOperation */,
 				9B41AA7721B5068E007050CE /* DataStructureKnowledge */,
 				9B03435C22951E7700D1EC88 /* TZXY */,
@@ -516,7 +529,7 @@
 				TargetAttributes = {
 					9B4C43631E5044DE003087D3 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = Y77Y339G4T;
+						DevelopmentTeam = LAPXCLH73Q;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -526,6 +539,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -562,6 +576,7 @@
 				9B4C436C1E5044DE003087D3 /* AppDelegate.m in Sources */,
 				9B8E336E22CB5AED00EC62CD /* recursion.m in Sources */,
 				9B0318E822A6200D0089D6D6 /* RDog.m in Sources */,
+				9B42694D26CA65C100CD9201 /* ASMLook.m in Sources */,
 				9B9E2A3B1E8E07FB002AEE2D /* Lock_pthread_mutex_recursive.m in Sources */,
 				9B4C43AE1E509651003087D3 /* Lock_NSLock.m in Sources */,
 				9B8E339622E0548C00EC62CD /* RedBlackTree.m in Sources */,
@@ -724,10 +739,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y77Y339G4T;
+				DEVELOPMENT_TEAM = LAPXCLH73Q;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = Blog/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sdk.Blog;
@@ -739,10 +754,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y77Y339G4T;
+				DEVELOPMENT_TEAM = LAPXCLH73Q;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				INFOPLIST_FILE = Blog/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sdk.Blog;

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <mach-o/loader.h>
 
 @interface ViewController : UIViewController
 
